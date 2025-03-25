@@ -12,6 +12,10 @@ import logging
 load_dotenv()
 app = FastAPI()
 
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
 # cloudinary config
 cloudinary.config(
     cloud_name=os.getenv("CLOUD_NAME"),
