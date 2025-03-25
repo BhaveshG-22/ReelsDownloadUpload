@@ -43,7 +43,7 @@ def download_reel(shortcode: str, custom_name: str):
         )
 
         if not mp4_files:
-            return {"status": "error", "message": "No .mp4 file found."}
+            return {"success": "false", "message": "No .mp4 file found."}
 
         original_path = mp4_files[0]
         new_path = os.path.join(target_dir, f"{custom_name}.mp4")
@@ -61,7 +61,7 @@ def download_reel(shortcode: str, custom_name: str):
 
 
         return {
-            "status": "success",
+            "success": 'true',
             "message": f"Downloaded and uploaded as {custom_name}.mp4",
             "cloudinary_url": upload_result.get("secure_url")
         }
